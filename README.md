@@ -117,9 +117,18 @@ write following line in kernel.json. you have to update the cuda path in the fol
 download source code from the current repository <br>
 update nvcc path (which nvcc) in the kernel.py file in the following location <br>
 jupyter-c-kernel/jupyter_c_kernel <br>
-
-then in parent folder jupyter-c-kernel, and run following command
 ```shell
+git clone https://github.com/SHUs-Lab/JupyterHubPlus.git
+cd JupyterHubPlus/jupyter-c-kernel/jupyter_c_kernel
+update nvcc path in kernel.py in following line
+args = ['/usr/local/cuda-11.7/bin/nvcc', source_filename]  + ['-o', binary_filename ] 
+```
+
+
+then go to parent folder jupyter-c-kernel, and run following command
+
+```shell
+cd JupyterHubPlus/jupyter-c-kernel
 pip install -e .
 ```
 then run following command in command line
@@ -133,7 +142,7 @@ Available kernels:
   cuda-c     /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/Cuda-C
   python3    /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/python3
 ```
-Now run the jupyter hub. you will get Cuda C option 
+Now run the Jupyterhub. you will get Cuda C option 
 <br>
 jupyter-c-kernel code forked from https://github.com/brendan-rius/jupyter-c-kernel.git
 
