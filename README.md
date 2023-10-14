@@ -1,6 +1,6 @@
 # JupyterHubPlus
 
-## Installation steps
+## JupyterHub Installation steps
 
 ### STEP1: Install Jupyterhub
 ```shell
@@ -84,6 +84,58 @@ http://127.0.0.1:8081/hub/admin#/
 
 
 ref of nativeauthenticator: https://native-authenticator.readthedocs.io/en/stable/quickstart.html
+
+## Cuda C with JupyterHub
+
+### STEP1: Install required libraries and update kernelspec
+First, run the following command in command line
+
+```shell
+pip install ipykernel
+pip install jupyter-client 
+jupyter kernelspec list
+```
+you will find output like this
+```shell
+Available kernels:
+  python3    /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/python3
+```
+
+now go to the folder kernels in your computer(path get from the above line -- /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels).<br> Then create a folder Cuda-C. <be> within that folder create file kernel.json
+
+```shell
+cd /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/
+mkdir Cuda-C
+```
+write following line in kernel.json. you have to update the cuda path in the following line... <br>check the cuda path with "which nvcc" command
+```shell
+{"argv": ["python3", "-m", "jupyter_c_kernel", "-f", "{connection_file}"], "display_name": "Cuda-C", "language": "Cuda-C", "env": { "PATH":"/usr/local/cuda-11.7/bin/:$PATH", "LD_LIBRARY_PATH":"/usr/local/cuda-11.7/lib64"}}
+```
+
+### STEP2: Cuda C kernel installation
+
+download source code from the current repository <br>
+update nvcc path (which nvcc) in the kernel.py file in the following location <br>
+jupyter-c-kernel/jupyter_c_kernel <br>
+
+then in parent folder jupyter-c-kernel, and run following command
+```shell
+pip install -e .
+```
+then run following command in command line
+```shell
+jupyter kernelspec list
+```
+you will get output like this
+<br>
+```shell
+Available kernels:
+  cuda-c     /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/Cuda-C
+  python3    /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/python3
+```
+Now run the jupyter hub. you will get Cuda C option 
+<br>
+jupyter-c-kernel code forked from https://github.com/brendan-rius/jupyter-c-kernel.git
 
 
 
