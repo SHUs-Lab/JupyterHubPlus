@@ -50,7 +50,7 @@ c.Authenticator.admin_users = {'your linux login username'}
 replace 
 # c.JupyterHub.authenticator_class = 'jupyterhub.auth.PAMAuthenticator'
 with
-c.JupyterHub.authenticator_class = 'native'
+c.JupyterHub.authenticator_class = 'nativeauthenticator.NativeAuthenticator'
 
 finally, add the following lines at the top of the configuration file
 
