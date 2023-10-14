@@ -3,11 +3,11 @@
 ## Installation steps
 
 ### STEP1: Install Jupyterhub
-
+```shell
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh <br>
 chmod 777 Anaconda3-2022.10-Linux-x86_64.sh
 ./Anaconda3-2022.10-Linux-x86_64.sh
-
+```
 ### STEP2: Install libraries required
 ```shell
 pip install ruamel-yaml
@@ -22,13 +22,13 @@ jupyterhub
 when  jupyterhub runs, it will provide a link to open in the browser usually 
 following: 
 
-http://127.0.0.1:8000/
+http://127.0.0.1:8000/ <br>
 login here with your Linux account username and password
 
 
 ### STEP3: Create a Configuration file for Jupyterhub and set admin user
 
-create a folder and go to that folder by command line. then generate configuration files for jupyterhub
+create a folder and go to that folder by command line. then generate configuration files for Jupyterhub
 
 Generate configuration file
 
@@ -58,11 +58,11 @@ import os, nativeauthenticator
 c.JupyterHub.template_paths = [f"{os.path.dirname(nativeauthenticator.__file__)}/templates/"]
 ```
 
-after updating the configuration file start jupyter hub with the updated configuration file on that folder from the commandline
-
+after updating the configuration file start Jupyterhub with the updated configuration file on that folder from the command line
+```shell
 jupyterhub -f jupyterhub_config.py
-
-when  jupyterhub runs, it will provide a link to open in the browser usually 
+```
+When Jupyterhub runs, it will provide a link to open in the browser usually 
 following: 
 
 http://127.0.0.1:8000/
