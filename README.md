@@ -31,9 +31,9 @@ login here with your Linux account username and password
 create a folder and go to that folder by command line. then generate configuration files for Jupyterhub
 
 Generate configuration file
-
+```shell
 jupyterhub --generate-config
-
+```
 a file jupyterhub_config.py will be created in that folder. Open that configuration file and modify the following lines
 ```shell
 replace 
@@ -64,20 +64,23 @@ jupyterhub -f jupyterhub_config.py
 ```
 When Jupyterhub runs, it will provide a link to open in the browser usually 
 following: 
-
+<br>
 http://127.0.0.1:8000/
+<br>
 login here with your Linux account username and password
 
 
 ### STEP4:  User approval:
 
-user will request their access from http://127.0.0.1:8000/
-
+user will request their access from 
+<br>
+http://127.0.0.1:8000/
+<br>
 approve user request after login with your linux login username password (as you set it admin user)
 from the following URL:
-
+<br>
 http://127.0.0.1:8081/hub/admin#/
-
+<br>
 
 
 ref of nativeauthenticator: https://native-authenticator.readthedocs.io/en/stable/quickstart.html
