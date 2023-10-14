@@ -15,11 +15,11 @@ pip install pycosat
 pip install jupyterhub-nativeauthenticator
 pip install sudospawner
 ```
-After installation run jupyterhub with the following command with command line
+After installation run Jupyterhub with the following command with the command line
 ```shell
 jupyterhub
 ```
-when  jupyterhub runs, it will provide a link to open in the browser usually 
+When Jupyterhub runs, it will provide a link to open in the browser usually 
 following: 
 
 http://127.0.0.1:8000/ <br>
@@ -107,7 +107,7 @@ now go to the folder kernels in your computer(path get from the above line -- /h
 cd /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/
 mkdir Cuda-C
 ```
-write following line in kernel.json. you have to update the cuda path in the following line... <br>check the cuda path with "which nvcc" command
+write following line in kernel.json. you have to update the cuda path in the following line... <br> Check the cuda path with "which nvcc" command
 ```shell
 {"argv": ["python3", "-m", "jupyter_c_kernel", "-f", "{connection_file}"], "display_name": "Cuda-C", "language": "Cuda-C", "env": { "PATH":"/usr/local/cuda-11.7/bin/:$PATH", "LD_LIBRARY_PATH":"/usr/local/cuda-11.7/lib64"}}
 ```
@@ -120,7 +120,7 @@ jupyter-c-kernel/jupyter_c_kernel <br>
 ```shell
 git clone https://github.com/SHUs-Lab/JupyterHubPlus.git
 cd JupyterHubPlus/jupyter-c-kernel/jupyter_c_kernel
-edit kernel.py and update nvcc path in  in the following lines
+edit kernel.py and update nvcc path in the following lines
 args = ['/usr/local/cuda-11.7/bin/nvcc', source_filename]  + ['-o', binary_filename ]
 os.environ["PATH"] = os.environ["PATH"]+":/usr/local/cuda-11.7/bin/" 
 ```
@@ -132,7 +132,7 @@ then go to parent folder jupyter-c-kernel, and run following command
 cd JupyterHubPlus/jupyter-c-kernel
 pip install -e .
 ```
-then run following command in command line
+then run the following command in the command line
 ```shell
 jupyter kernelspec list
 ```
