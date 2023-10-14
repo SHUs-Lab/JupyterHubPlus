@@ -88,7 +88,7 @@ ref of nativeauthenticator: https://native-authenticator.readthedocs.io/en/stabl
 ## Cuda C with JupyterHub
 
 ### STEP1: Install required libraries and update kernelspec
-First, run the following command in command line
+First, run the following command in the command line
 
 ```shell
 pip install ipykernel
@@ -120,8 +120,9 @@ jupyter-c-kernel/jupyter_c_kernel <br>
 ```shell
 git clone https://github.com/SHUs-Lab/JupyterHubPlus.git
 cd JupyterHubPlus/jupyter-c-kernel/jupyter_c_kernel
-update nvcc path in kernel.py in following line
-args = ['/usr/local/cuda-11.7/bin/nvcc', source_filename]  + ['-o', binary_filename ] 
+edit kernel.py and update nvcc path in  in the following lines
+args = ['/usr/local/cuda-11.7/bin/nvcc', source_filename]  + ['-o', binary_filename ]
+os.environ["PATH"] = os.environ["PATH"]+":/usr/local/cuda-11.7/bin/" 
 ```
 
 
