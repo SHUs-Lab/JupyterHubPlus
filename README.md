@@ -5,9 +5,8 @@
 ### STEP1: Install Jupyterhub
 
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
-
 chmod 777 Anaconda3-2022.10-Linux-x86_64.sh
-./Anaconda3-2022.10-Linux-x86_64.s
+./Anaconda3-2022.10-Linux-x86_64.sh
 
 ### STEP2: Install libraries required
 
