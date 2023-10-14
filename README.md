@@ -4,21 +4,21 @@
 
 ### STEP1: Install Jupyterhub
 
-wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh <br>
 chmod 777 Anaconda3-2022.10-Linux-x86_64.sh
 ./Anaconda3-2022.10-Linux-x86_64.sh
 
 ### STEP2: Install libraries required
-
+```shell
 pip install ruamel-yaml
 pip install pycosat
 pip install jupyterhub-nativeauthenticator
 pip install sudospawner
-
+```
 After installation run jupyterhub with the following command with command line
-
+```shell
 jupyterhub
-
+```
 when  jupyterhub runs, it will provide a link to open in the browser usually 
 following: 
 
@@ -35,17 +35,20 @@ Generate configuration file
 jupyterhub --generate-config
 
 a file jupyterhub_config.py will be created in that folder. Open that configuration file and modify the following lines
-
-replace # c.JupyterHub.spawner_class = 'jupyterhub.spawner.LocalProcessSpawner'   
+```shell
+replace 
+# c.JupyterHub.spawner_class = 'jupyterhub.spawner.LocalProcessSpawner'   
 with 
 c.JupyterHub.spawner_class = 'jupyterhub.spawner.SimpleLocalProcessSpawner'
 
-replace # c.Authenticator.admin_users = set()
+replace
+# c.Authenticator.admin_users = set()
 with
 c.Authenticator.admin_users = {'your linux login username'}   
 
 
-replace # c.JupyterHub.authenticator_class = 'jupyterhub.auth.PAMAuthenticator'
+replace 
+# c.JupyterHub.authenticator_class = 'jupyterhub.auth.PAMAuthenticator'
 with
 c.JupyterHub.authenticator_class = 'native'
 
@@ -53,7 +56,7 @@ finally, add the following lines at the top of the configuration file
 
 import os, nativeauthenticator
 c.JupyterHub.template_paths = [f"{os.path.dirname(nativeauthenticator.__file__)}/templates/"]
-
+```
 
 after updating the configuration file start jupyter hub with the updated configuration file on that folder from the commandline
 
