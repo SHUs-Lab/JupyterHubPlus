@@ -2,13 +2,13 @@
 
 ## Installation steps
 
-STEP1: Install Jupyterhub
+### STEP1: Install Jupyterhub
 
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 chmod 777 Anaconda3-2022.10-Linux-x86_64.sh
 ./Anaconda3-2022.10-Linux-x86_64.s
 
-STEP2: Install libraries required
+### STEP2: Install libraries required
 
 pip install ruamel-yaml
 pip install pycosat
@@ -26,7 +26,7 @@ http://127.0.0.1:8000/
 login here with your Linux account username and password
 
 
-STEP3: Create a Configuration file for Jupyterhub and set admin user
+### STEP3: Create a Configuration file for Jupyterhub and set admin user
 
 create a folder and go to that folder by command line. then generate configuration files for jupyterhub
 
@@ -66,7 +66,7 @@ http://127.0.0.1:8000/
 login here with your Linux account username and password
 
 
-User approval:
+### STEP4:  User approval:
 
 user will request their access from http://127.0.0.1:8000/
 
