@@ -213,8 +213,9 @@ After login, he needs to select Jupyterhub control panel from the file menu <br>
 
 <br>
 
-after thant he needs select admin and see following page <br>
-![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/75d471ab-02bc-43e7-932c-6785d8349f8f)
+after that he needs  ot select admin and see following page <br>
+![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/f2333c98-e834-494b-8c8d-3197c52c31c4)
+
 <br>
 
 By selecting access server he can access files from any user of the list. 
