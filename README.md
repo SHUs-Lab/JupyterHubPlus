@@ -150,6 +150,8 @@ jupyter-c-kernel code forked from https://github.com/brendan-rius/jupyter-c-kern
 
 ## Monitoring with JupyterHub
 
+
+### Update Roles in JupyterHub configuration file
 JupyterHub provides role based access control RBAC (Role Based Access Control) <br>
 Roles are **collections of scopes** that specify the level of what a client is allowed to do.<br>
 A **scope** has a syntax-based design that reveals which resources it provides access to.<br>
@@ -171,8 +173,10 @@ c.JupyterHub.load_roles = [
 ]
 ```
 The details of setting role and scope are available in the link: https://jupyterhub.readthedocs.io/en/stable/rbac/index.html <br>
-After adding/updating the roles in Jupyterhub configuration file, it requires to restart the jupyterhub to get the updated access previliges. <br>
+After adding/updating the roles in Jupyterhub configuration file, it requires to <br>restart <br> the jupyterhub to get the updated access previliges. <br>
+The groups are come from the created group (following section) from administration profile.
 
+### Manage group from adminstator profile
 The Group information is managed from the User interface. The admin user have the previleges to manage group and assign user to group. <br>
 when a user request access admin authorize the user from following url<br>
 http://127.0.0.1:8081/hub/authorize
@@ -181,11 +185,38 @@ http://127.0.0.1:8081/hub/authorize
 <br>
 After that admin need to add that user from the following url <br>
 http://127.0.0.1:8081/hub/admin#/ <br>
+
 ![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/9c5e2d31-ad03-464a-8397-13b891977cd7)
 
 <br>
-after adding user admin needs to put that user in any group from the button at right side 
+after adding user admin needs to assign that user in any group from the button at right side 
 <br>
+admin can create group or manage group from here
+<br>  
+
+![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/cff17bc0-7469-48b1-a896-7e84414185bd)
+
+<br>
+
+addmin can assign new user to a group <br>
+
+![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/37dfa3ca-1f33-4dc9-9ff3-eb082cc51c15)
+
+### Access student(a) group infromation from teacher(another) group
+Any user from teacher group needs to login from the following url <br>
+http://127.0.0.1:8000/hub/login
+<br>
+
+After login, he needs to select Jupyterhub control panel from the file menu <br>
+![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/e5ab5b22-fd9f-4247-bce9-cd413d071019)
+<br>
+
+after thant he needs select admin and see following page <br>
+![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/75d471ab-02bc-43e7-932c-6785d8349f8f)
+<br>
+
+By selecting access server he can access files from any user of the list. 
+
 
 
 
