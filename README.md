@@ -148,5 +148,48 @@ Now run the Jupyterhub. you will get Cuda C option
 jupyter-c-kernel code forked from https://github.com/brendan-rius/jupyter-c-kernel.git
 
 
+## Monitoring with JupyterHub
+
+JupyterHub provides role based access control RBAC (Role Based Access Control) <br>
+Roles are **collections of scopes** that specify the level of what a client is allowed to do.<br>
+A **scope** has a syntax-based design that reveals which resources it provides access to.<br>
+Example: 
+```
+c.JupyterHub.load_roles = [
+  {
+    'name': 'teacher-role',
+    'scopes': [
+      # access to the admin page
+      'admin-ui',
+      # list users in the class group
+      'list:users!group=student',
+      # access servers for users in the class
+      'access:servers!group=student',
+    ],
+    'groups': ['teacher'],
+  }
+]
+```
+The details of setting role and scope are available in the link: https://jupyterhub.readthedocs.io/en/stable/rbac/index.html <br>
+After adding/updating the roles in Jupyterhub configuration file, it requires to restart the jupyterhub to get the updated access previliges. <br>
+
+The Group information is managed from the User interface. The admin user have the previleges to manage group and assign user to group. <br>
+when a user request access admin authorize the user from following url<br>
+http://127.0.0.1:8081/hub/authorize
+![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/65bb0371-5b32-4b51-9238-bc5844ed3773)
+
+<br>
+After that admin need to add that user from the following url <br>
+http://127.0.0.1:8081/hub/admin#/ <br>
+![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/9c5e2d31-ad03-464a-8397-13b891977cd7)
+
+<br>
+after adding user admin needs to put that user in any group from the button at right side 
+<br>
+
+
+
+
+
 
 
