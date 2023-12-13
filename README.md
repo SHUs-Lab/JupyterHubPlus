@@ -208,7 +208,9 @@ http://127.0.0.1:8000/hub/login
 <br>
 
 After login, he needs to select Jupyterhub control panel from the file menu <br>
-![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/e5ab5b22-fd9f-4247-bce9-cd413d071019)
+
+![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/64d560fa-2c69-4ef2-a3c7-227da0c22146)
+
 <br>
 
 after thant he needs select admin and see following page <br>
