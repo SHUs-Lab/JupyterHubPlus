@@ -174,11 +174,11 @@ c.JupyterHub.load_roles = [
 ```
 The details of setting role and scope are available in the link: https://jupyterhub.readthedocs.io/en/stable/rbac/index.html <br>
 After adding/updating the roles in Jupyterhub configuration file, it requires to <br>restart <br> the jupyterhub to get the updated access previliges. <br>
-The groups are come from the created group (following section) from administration profile.
+The groups are come from the created group (following section) from administrator profile.
 
-### Manage group from adminstator profile
+### Manage group from adminstrator profile
 The Group information is managed from the User interface. The admin user have the previleges to manage group and assign user to group. <br>
-when a user request access admin authorize the user from following url<br>
+when a user request access, admin authorize the user from following url<br>
 http://127.0.0.1:8081/hub/authorize
 ![image](https://github.com/SHUs-Lab/JupyterHubPlus/assets/18241223/65bb0371-5b32-4b51-9238-bc5844ed3773)
 
