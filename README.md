@@ -2,20 +2,28 @@
 
 ## JupyterHub Installation steps
 
-### STEP1: Install Jupyterhub
+### STEP1: Install Anaconda
 ```shell
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh 
 chmod 777 Anaconda3-2022.10-Linux-x86_64.sh
 ./Anaconda3-2022.10-Linux-x86_64.sh
 ```
-### STEP2: Install libraries required
+
+### STEP2: Create a new conda environment and activate it
+```
+conda create --name jhplus
+conda activate jhplus
+```
+**Note: Make sure this conda environement is activated before running all the following command**
+
+### STEP3: Install libraries required
 ```shell
-pip install ruamel-yaml
-pip install pycosat
+conda install jupyterhub
 pip install jupyterhub-nativeauthenticator
 pip install sudospawner
 ```
 After installation run Jupyterhub with the following command with the command line
+
 ```shell
 jupyterhub
 ```
@@ -23,10 +31,11 @@ When Jupyterhub runs, it will provide a link to open in the browser usually
 following: 
 
 http://127.0.0.1:8000/ <br>
-login here with your Linux account username and password
+
+You cannot login yet since nativeauthenticator has not been setup yet.
 
 
-### STEP3: Create a Configuration file for Jupyterhub and set admin user
+### STEP4: Create a Configuration file for Jupyterhub and set admin user
 
 create a folder and go to that folder by command line. then generate configuration files for Jupyterhub
 
@@ -44,7 +53,7 @@ c.JupyterHub.spawner_class = 'jupyterhub.spawner.SimpleLocalProcessSpawner'
 replace
 # c.Authenticator.admin_users = set()
 with
-c.Authenticator.admin_users = {'your linux login username'}   
+c.Authenticator.admin_users = {'admin_username'}   
 
 
 replace 
@@ -67,16 +76,19 @@ following:
 <br>
 http://127.0.0.1:8000/
 <br>
-login here with your Linux account username and password
+
+Go to the signup section and signup with the same admin username used in the `c.Authenticator.admin_users` section of the configuration file.
+
+Now login with the admin username and password used for signup
 
 
-### STEP4:  User approval:
+### STEP5:  User approval:
 
 user will request their access from 
 <br>
 http://127.0.0.1:8000/
 <br>
-approve user request after login with your linux login username password (as you set it admin user)
+approve user request after login with your admin username and password (as you set it admin user)
 from the following URL:
 <br>
 http://127.0.0.1:8081/hub/admin#/
@@ -98,13 +110,13 @@ jupyter kernelspec list
 you will find output like this
 ```shell
 Available kernels:
-  python3    /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/python3
+  python3    /home/tk0432@unt.ad.unt.edu/anaconda3/envs/<your_env_name>/share/jupyter/kernels/python3
 ```
 
 now go to the folder kernels in your computer(path get from the above line -- /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels).<br> Then create a folder Cuda-C. <be> within that folder create file kernel.json
 
 ```shell
-cd /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/
+cd /home/tk0432@unt.ad.unt.edu/anaconda3/envs/<your_env_name>/share/jupyter/kernels/
 mkdir Cuda-C
 ```
 write following line in kernel.json. you have to update the cuda path in the following line... <br> Check the cuda path with "which nvcc" command
@@ -140,8 +152,8 @@ you will get output like this
 <br>
 ```shell
 Available kernels:
-  cuda-c     /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/Cuda-C
-  python3    /home/tk0432@unt.ad.unt.edu/anaconda3/share/jupyter/kernels/python3
+  cuda-c     /home/tk0432@unt.ad.unt.edu/anaconda3/envs/<your_env_name>/share/jupyter/kernels/Cuda-C
+  python3    /home/tk0432@unt.ad.unt.edu/anaconda3/envs/<your_env_name>/share/jupyter/kernels/python3
 ```
 Now run the Jupyterhub. you will get Cuda C option 
 <br>
